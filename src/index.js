@@ -1,15 +1,15 @@
 import React from "react";
-import ReactDOM from "react-dom/client";
-import Users from "./components/users";
+import ReactDOM from "react-dom";
 import "./index.css";
 import reportWebVitals from "./reportWebVitals";
 import "bootstrap/dist/css/bootstrap.css";
+import Users from "./app/components/users";
 
-let root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(
-  <>
+ReactDOM.render(
+  <React.StrictMode>
     <Users />
-  </>
+  </React.StrictMode>,
+  document.getElementById("root")
 );
 
 reportWebVitals();
