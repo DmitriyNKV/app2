@@ -9,13 +9,11 @@ const Users = () => {
   };
 
   const renderPhrase = (number) => {
-    const lastOneNumber = Number(number.toString().slice(-1));
-    console.log(lastOneNumber);
-    if (number > 4 && number < 15) return "Человек тусанет";
-    if ([2, 3, 4].indexOf(lastOneNumber) >= 0) return " Человека тусанут";
-    if (lastOneNumber === 1) return "Человек тусанет";
-
-    return "Человек тусанет";
+    const lastOne = Number(number.toString().slice(-1));
+    if (number > 4 && number < 15) return "человек тусанет";
+    if ([2, 3, 4].indexOf(lastOne) >= 0) return "человека тусанут";
+    if (lastOne === 1) return "человек тусанет";
+    return "человек тусанет";
   };
 
   return (
@@ -31,19 +29,19 @@ const Users = () => {
             : "Никто с тобой не тусанет"}
         </span>
       </h2>
+
       {users.length > 0 && (
-        <table class="table">
+        <table className="table">
           <thead>
             <tr>
-              <th scope="col">#</th>
               <th scope="col">Имя</th>
               <th scope="col">Качества</th>
+              <th scope="col">Профессия</th>
               <th scope="col">Встретился, раз</th>
               <th scope="col">Оценка</th>
               <th />
             </tr>
           </thead>
-
           <tbody>
             {users.map((user) => (
               <tr key={user._id}>
@@ -61,7 +59,6 @@ const Users = () => {
                 <td>{user.profession.name}</td>
                 <td>{user.completedMeetings}</td>
                 <td>{user.rate} /5</td>
-
                 <td>
                   <button
                     onClick={() => handleDelete(user._id)}
